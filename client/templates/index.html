@@ -1,0 +1,37 @@
+<template name="index">
+    {{#if currentUser}}
+    <form id="game-start" class="form-horizontal">
+        <fieldset>
+            <legend>
+                Poker
+            </legend>
+
+            <div class="control-group">
+                <label class="control-label">Join Game</label>
+                <div class="controls">
+                    <div class="input-append">
+                        <div class="input-append">
+                            <input id="game-id" name="game-id" class="span2" placeholder="Game ID" type="text">
+                            <button id="join-game" class="btn dropdown-toggle btn-success">
+                                Join
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Create game</label>
+                <div class="controls">
+                    <button id="create-game" name="create-game" class="btn btn-info">
+                        Create
+                    </button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    {{else}}
+    {{loginButtons}}
+    {{/if}}
+</template>

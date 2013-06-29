@@ -1,0 +1,11 @@
+<template name="game">
+    <h1>Game: {{$.Session.get 'gameId'}}</h1>
+    {{#if isAdmin}}
+    {{> admin}}
+    {{/if}}
+</template>
+
+<template name="admin">
+    <h2>This is the Admin</h2>
+    <button id="deal-cards">Deal cards</button>
+</template>
