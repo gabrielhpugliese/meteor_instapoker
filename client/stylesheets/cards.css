@@ -1,10 +1,4 @@
 /* Make this .cardtable? */
-body {
-  margin: 0 10px;
-  background-color: #272;
-  font-size: 0.9em;
-}
-
 .card-group {
   padding: 10px;
   padding-left: 0px;
@@ -49,20 +43,20 @@ body {
   color: red;
 }
 .card.club {
-  background: #FFF url(images/club.png) no-repeat scroll center;
+  background: #FFF url(/images/club.png) no-repeat scroll center;
 }
 .card.heart {
-  background: #FFF url(images/heart.png) no-repeat scroll center;
+  background: #FFF url(/images/heart.png) no-repeat scroll center;
 }
 .card.diamond {
-  background: #FFF url(images/diamond.png) no-repeat scroll center;
+  background: #FFF url(/images/diamond.png) no-repeat scroll center;
 }
 .card.spade {
-  background: #FFF url(images/spade.png) no-repeat scroll center;
+  background: #FFF url(/images/spade.png) no-repeat scroll center;
 }
 
 .card.hidden {
-  background: #FFF url(images/question.png) no-repeat scroll center;
+  background: #FFF url(/images/question.png) no-repeat scroll center;
 }
 .card.hidden .value, .card.hidden .suit {
   display: none;
