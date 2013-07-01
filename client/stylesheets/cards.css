@@ -55,9 +55,13 @@
   background: #FFF url(/images/spade.png) no-repeat scroll center;
 }
 
-.card.hidden {
+.card.card-hidden {
   background: #FFF url(/images/question.png) no-repeat scroll center;
 }
 .card.hidden .value, .card.hidden .suit {
   display: none;
+}
+
+#back {
+    cursor: pointer;
 }

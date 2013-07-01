@@ -6,7 +6,7 @@ Meteor.pages({
 });
 
 function createGame () {
-	var gameId = Games.insert({'players': {}, 'admin': Meteor.userId()}),
+	var gameId = Games.insert({'players': {}, 'admin': Meteor.userId(), round: 0}),
 		newGamePath = Meteor.gamePath() + '/' + gameId;
 	Session.set('gameId', gameId);
 	
@@ -15,8 +15,15 @@ function createGame () {
 }
 
 function checkGameExistence () {
+    if (typeof gamesSub !== 'undefined' && !gamesSub.ready())
+        return;
+
 	var gameId = this.params._id;
 	Session.set('gameId', gameId);
+	if (!Games.findOne({_id: gameId})) {
+		this.redirect(Meteor.notFoundPath());
+		this.done();
+	}
 }
 
 function loggedIn () {

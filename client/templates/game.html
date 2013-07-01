@@ -1,5 +1,8 @@
 <template name="game">
     <h1>Game: {{$.Session.get 'gameId'}}</h1>
+    {{#with currentGame}}
+    <h2>Round: {{round}}</h2>
+    {{/with}}
     {{#if isAdmin}}
     {{> admin}}
     {{else}}
@@ -23,5 +26,13 @@
 </template>
 
 <template name="player">
-    <ul id="base" class="card-group"></ul>
+    <ul id="base" class="card-group" style="display: none;"></ul>
+    <ul id="back" class="card-group">
+        <li class="card-li">
+            <div class="card card-hidden"></div>
+        </li>
+        <li class="card-li">
+            <div class="card card-hidden"></div>
+        </li>
+    </ul>
 </template>

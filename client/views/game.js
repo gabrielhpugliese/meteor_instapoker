@@ -1,8 +1,13 @@
 Template.game.isAdmin = function() {
-    var gameId = Session.get('gameId'), currentGame = Games.findOne({
-        _id : gameId
-    });
+    var gameId = Session.get('gameId'), 
+        currentGame = Games.findOne({_id : gameId});
     return currentGame && currentGame.admin === Meteor.userId();
+}
+
+Template.game.currentGame = function () {
+    var gameId = Session.get('gameId'), 
+        currentGame = Games.findOne({_id : gameId});
+    return currentGame;
 }
 
 Template.game.events({
@@ -73,6 +78,9 @@ function dealCardsToPlayers() {
     }, {
         $set : {
             players : players
+        },
+        $inc : {
+            round: 1
         }
     });
 }
@@ -94,3 +102,17 @@ Template.player.created = function() {
         });
     });
 }
+
+Template.player.events({
+    'click #back': function () {
+        var base = document.getElementById('base'),
+            back = document.getElementById('back');
+            
+        back.style.display = 'none';
+        base.style.display = 'block';
+        Meteor.setTimeout(function () {
+            base.style.display = 'none';
+            back.style.display = 'block';
+        }, 3000);
+    }
+});
